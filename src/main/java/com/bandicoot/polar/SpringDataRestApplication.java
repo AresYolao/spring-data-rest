@@ -2,15 +2,12 @@ package com.bandicoot.polar;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-
-import com.bandicoot.polar.service.impl.ClienteServiceImpl;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import lombok.extern.slf4j.Slf4j;
 
-
-@ComponentScan(basePackages = {"com.bandicoot.polar.repository"})
-@SpringBootApplication
+@EnableJpaRepositories(basePackages = {"com.bandicoot.polar.dao"})
+@SpringBootApplication(scanBasePackages = {   "com.bandicoot.polar.exception"})
 @Slf4j
 public class SpringDataRestApplication {
 
@@ -18,5 +15,11 @@ public class SpringDataRestApplication {
 		SpringApplication.run(SpringDataRestApplication.class, args);
 		log.info("aqui empieza");
 	}
+	
+	
+	 
 
+
+	 
+	 
 }
