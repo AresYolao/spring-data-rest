@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -46,9 +49,21 @@ public class Cliente {
 	@Temporal(TemporalType.DATE)
 	private Date fechaCreacion;
 
-
+	@ManyToOne
+    @JoinColumn(name = "estado_id",nullable = true, updatable = true, insertable = true)
+	private Estado estado;
+	
 	public Long getIdCliente() {
 		return id;
 	}
 
+	
+	public Estado getDataEstado() {
+		return estado;
+	}
+	
+	public void setDataEstado(Estado dataEstado) {
+		this.estado = dataEstado;
+	}
+	
 }
